@@ -44,11 +44,11 @@ export default function Hero() {
 
       {/* ── 3D canvas ── */}
       <div className="absolute inset-0 md:left-[45%] opacity-50 md:opacity-100">
-        {mounted && (
-          <Suspense fallback={null}>
-            <FloatingShape />
-          </Suspense>
-        )}
+        {mounted && typeof window !== "undefined" && (
+  <Suspense fallback={null}>
+    <FloatingShape />
+  </Suspense>
+)}
       </div>
 
       {/* ── Top rule ── */}
