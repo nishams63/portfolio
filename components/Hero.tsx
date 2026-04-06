@@ -21,7 +21,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black text-white">
 
       {/* 3D BACKGROUND */}
-      <div className="absolute inset-0 z-0 opacity-50">
+      <div className="absolute inset-0 z-0 opacity-90 md:left-[40%]">
         {mounted && typeof window !== "undefined" && show3D && (
           <Suspense fallback={null}>
             <FloatingShape />
@@ -40,30 +40,35 @@ export default function Hero() {
         <div
           className="absolute top-1/4 left-[10%] w-[350px] h-[350px] rounded-full blur-[120px] opacity-20"
           style={{
-            background: "radial-gradient(circle, #E8C97A 0%, transparent 70%)",
+            background: "radial-gradient(circle, #ffb805 0%, transparent 70%)",
           }}
         />
       </div>
 
       {/* OVERLAY (IMPORTANT) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
 
       {/* CONTENT */}
-      <div className="relative z-20 max-w-6xl mx-auto px-6">
+      <div className="relative z-20 max-w-6xl mx-auto px-6 md:ml-10">
 
         {/* Role */}
         <p className="text-sm tracking-widest text-gray-400 uppercase mb-4">
           AI AUTOMATION SPECIALIST
         </p>
 
-        {/* Headline */}
-        <h1 className="text-[clamp(3rem,8vw,7rem)] font-bold leading-tight mb-6">
-          I Build Systems That
-          <br />
-          <span className="text-yellow-500">
-            Scale Your Revenue
-          </span>
-        </h1>
+        <h1 className="text-[clamp(3rem,7vw,6rem)] font-bold leading-[1.05] tracking-tight mb-6 max-w-3xl">
+  Build Systems That
+  <br />
+  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+    Print Revenue
+  </span>
+</h1>
+<div className="flex items-center gap-2 mb-6">
+  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+  <p className="text-sm text-gray-400">
+    Available for projects
+  </p>
+</div>
 
         {/* Subtext */}
         <p className="text-lg text-gray-300 max-w-xl mb-10">
@@ -74,7 +79,7 @@ export default function Hero() {
         <div className="flex gap-4">
           <a
             href="#contact"
-            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-full hover:scale-105 transition"
+            className="px-7 py-3 bg-yellow-500 text-black font-semibold rounded-full hover:scale-105 hover:shadow-lg transition"
           >
             Book a Call
           </a>
