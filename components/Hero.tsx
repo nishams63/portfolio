@@ -12,7 +12,7 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   // 🔥 CONTROL 3D HERE
-  const show3D = false; // change to true when ready
+  const show3D = true; // change to true when ready
 
   useEffect(() => {
     setMounted(true);
