@@ -11,26 +11,17 @@ const FloatingShape = dynamic(() => import("./three/FloatingShape"), {
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
-  // 🔥 CONTROL 3D HERE
-  const show3D = true; // change to true when ready
+  const show3D = true;
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const name = "Nisham";
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black text-white">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black text-white">
 
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-[20%] -translate-y-1/2 w-[600px] h-[600px] bg-yellow-500/10 blur-[120px] rounded-full" />
-        <div className="absolute top-1/4 left-[10%] w-[300px] h-[300px] bg-yellow-500/5 blur-[100px] rounded-full" />
-      </div>
-
-      {/* 3D Canvas */}
-      <div className="absolute inset-0 md:left-[45%] opacity-50 md:opacity-100">
+      {/* 3D BACKGROUND */}
+      <div className="absolute inset-0 z-0 opacity-50">
         {mounted && typeof window !== "undefined" && show3D && (
           <Suspense fallback={null}>
             <FloatingShape />
@@ -38,42 +29,61 @@ export default function Hero() {
         )}
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      {/* GLOW */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          className="absolute top-1/2 right-[20%] -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[140px] opacity-30"
+          style={{
+            background: "radial-gradient(circle, #C9A84C 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute top-1/4 left-[10%] w-[350px] h-[350px] rounded-full blur-[120px] opacity-20"
+          style={{
+            background: "radial-gradient(circle, #E8C97A 0%, transparent 70%)",
+          }}
+        />
+      </div>
 
-        {/* Intro */}
+      {/* OVERLAY (IMPORTANT) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10" />
+
+      {/* CONTENT */}
+      <div className="relative z-20 max-w-6xl mx-auto px-6">
+
+        {/* Role */}
         <p className="text-sm tracking-widest text-gray-400 uppercase mb-4">
-          Hi, I'm
+          AI AUTOMATION SPECIALIST
         </p>
 
-        {/* Name */}
+        {/* Headline */}
         <h1 className="text-[clamp(3rem,8vw,7rem)] font-bold leading-tight mb-6">
-          <span className="text-yellow-500">N</span>
-          {name.slice(1)}
+          I Build Systems That
+          <br />
+          <span className="text-yellow-500">
+            Scale Your Revenue
+          </span>
         </h1>
 
-        {/* Tagline */}
-        <p className="text-xl text-gray-300 max-w-xl mb-10">
-          I help brands grow using{" "}
-          <span className="text-yellow-400 font-semibold">
-            AI automation
-          </span>
+        {/* Subtext */}
+        <p className="text-lg text-gray-300 max-w-xl mb-10">
+          Helping e-commerce brands grow faster using AI automation and high-converting content systems.
         </p>
 
         {/* Buttons */}
         <div className="flex gap-4">
           <a
             href="#contact"
-            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:opacity-90 transition"
+            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-full hover:scale-105 transition"
           >
-            Work With Me
+            Book a Call
           </a>
 
           <a
             href="#projects"
-            className="px-6 py-3 border border-gray-500 rounded-lg hover:bg-white/10 transition"
+            className="px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 transition"
           >
-            View Projects
+            See Work
           </a>
         </div>
 
